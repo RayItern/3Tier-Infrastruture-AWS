@@ -99,7 +99,7 @@ Enter the username and password for your database when the system prompts you. P
 
 After the Terraform deployment, the following outputs should be available: the Elastic IP address, the Application load balancer(ALB) DNS name, the database endpoint, and the public IP address for the bastion host.
 
-<img src="images/resources/terraform_output.png" alt="image" style="width:600px;"/>
+<img src="images/resources/terraform_output.PNG" alt="image" style="width:600px;"/>
 
 ### AWS Resources
 
@@ -165,19 +165,19 @@ Convert the keypair generated into a ppk file using PuTTYgen
 
 Using PuTTY, upload the keypair.ppk file under "Credentials'" and SSH into the web tier instance.
 
-<img src="images/testing/2_stress_ssh_config.png" alt="image" style="width:400px;"/>
-<img src="images/testing/2_stress_ssh.png" alt="image" style="width:400px;"/>
+<img src="images/testing/2_stress_ssh_config.PNG" alt="image" style="width:400px;"/>
+<img src="images/testing/2_stress_ssh.PNG" alt="image" style="width:400px;"/>
 
 After connecting, run the stress command, and you should see the CloudWatch alarm triggered, resulting in the spinning up of an additional EC2 instance.
 
 ```
 sudo stress --cpu 50 --timeout 500
 ```
-<img src="images/testing/2_stress_run.png" alt="image" style="width:600px;"/>
+<img src="images/testing/2_stress_run.PNG" alt="image" style="width:600px;"/>
 
 Head to the EC2 page, and you should see the auto-scaling group launch an additional EC2 instance.
 
-<img src="images/testing/2_additonal_ec2.png" alt="image" style="width:600px;"/>
+<img src="images/testing/2_additonal_ec2.PNG" alt="image" style="width:600px;"/>
 
 <br/>
 
@@ -190,24 +190,24 @@ Using the Windows command prompt, copy the keypair to the bastion host.
 ```
 pscp -i C:\Users\<YOUR FILE LOCATON>\P1_3tier_archi_keypair.ppk C:\Users\<YOUR FILE LOCATON>\P1_3tier_archi_keypair ec2-user@ <BASTION HOST IP ADDRESS>:
 ```
-<img src="images/testing/3_copy_keypair.png" alt="image" style="width:600px;"/>
+<img src="images/testing/3_copy_keypair.PNG" alt="image" style="width:600px;"/>
 
 SSH into the bastion host using PuTTY (with keypair) and check that the keypair has been copied over.
 
-<img src="images/testing/3_ssh_bastion.png" alt="image" style="width:400px;"/>
+<img src="images/testing/3_ssh_bastion.PNG" alt="image" style="width:400px;"/>
 
 Once in the bastion host, check that the keypair is copied over and change the access permission to 400.
 ```
 chmod 400 P1_3tier_archi_keypair
 ll # To check the access permission
 ```
-<img src="images/testing/3_chmod.png" alt="image" style="width:600px;"/>
+<img src="images/testing/3_chmod.PNG" alt="image" style="width:600px;"/>
 
 SSH into the app tier EC2.
 ```
 ssh -i P1_3tier_archi_keypair ec2-user@<YOUR APP TIER EC2 IP ADDRESS>
 ```
-<img src="images/testing/3_ssh_to_app.png" alt="image" style="width:600px;"/>
+<img src="images/testing/3_ssh_to_app.PNG" alt="image" style="width:600px;"/>
 
 <br/>
 
@@ -219,11 +219,11 @@ While in the app tier EC2, enter the following command to access the database. K
 mysql -h <DATABASE ENDPOINT> -u <DATABASE USERNAME> -p
 ```
 
-<img src="images/testing/4_connectingtodb.png" alt="image" style="width:600px;"/>
+<img src="images/testing/4_connectingtodb.PNG" alt="image" style="width:600px;"/>
 
 You should be able to access the database, see the image below.
 
-<img src="images/testing/4_connectingtodb2.png" alt="image" style="width:600px;"/>
+<img src="images/testing/4_connectingtodb2.PNG" alt="image" style="width:600px;"/>
 
 <br/>
 
@@ -231,11 +231,11 @@ You should be able to access the database, see the image below.
 
 Head to the RDS service in the AWS console. Click on "Action" and select "Failover"
 
-<img src="images/testing/5_failover1.png" alt="image" style="width:600px;"/>
+<img src="images/testing/5_failover1.PNG" alt="image" style="width:600px;"/>
 
 Allow the database to failover and observe that the writer and reader databases have changed.
 
-<img src="images/testing/5_failover2.png" alt="image" style="width:600px;"/>
+<img src="images/testing/5_failover2.PNG" alt="image" style="width:600px;"/>
 
 <br/>
 
