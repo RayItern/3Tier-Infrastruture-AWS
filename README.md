@@ -109,6 +109,7 @@ Go to your AWS console, and it should show the following:
 
 2x public subnets for the web tier, 2x private subnets for the app tier, and 2x private subnets for the database tier. 
 The web tier subnets will be connected to the internet gateway, while the app tier and database tier will be connected to the NAT gateway.
+
 <img src="images/resources/vpc.png" alt="image" style="width:600px;"/>
 <img src="images/resources/vpc_resourcemap.png" alt="image" style="width:600px;"/>
 <img src="images/resources/vpc_subnet.png" alt="image" style="width:600px;"/>
