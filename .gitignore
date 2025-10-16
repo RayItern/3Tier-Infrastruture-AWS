@@ -1,0 +1,2 @@
+Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error.Summary:
+Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error
