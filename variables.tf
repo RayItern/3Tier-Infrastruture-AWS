@@ -31,7 +31,7 @@ variable "azs" {
 variable "amis" {
   type        = string
   description = "Instance AMI"
-  default     = "ami-02396cdd13e9a1257"
+  default     = "ami-0360c520857e3138f"
 }
 
 variable "instance_type" {
@@ -40,11 +40,13 @@ variable "instance_type" {
 }
 
 variable "username" {
+  default = "DB12345"
   description = "The username for the DB master user"
   type        = string
   sensitive   = true
 }
 variable "password" {
+  default = "Chioma145"
   description = "The password for the DB master user"
   type        = string
   sensitive   = true

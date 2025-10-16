@@ -79,7 +79,7 @@ resource "aws_eip" "NAT-Gateway-EIP" {
   depends_on = [
     aws_route_table_association.public_subnet_asso
   ]
-  vpc = true
+ # vpc = true
 }
 
 # Creating a NAT Gateway

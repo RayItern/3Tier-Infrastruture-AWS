@@ -36,7 +36,7 @@ resource "aws_rds_cluster_instance" "database-instance" {
   count                = 2
   identifier           = "aurora-database-${count.index + 1}"
   cluster_identifier   = aws_rds_cluster.database-tier.id
-  instance_class       = "db.t3.small"
+  instance_class       = "db.r5.2xlarge"
   engine               = aws_rds_cluster.database-tier.engine
   engine_version       = aws_rds_cluster.database-tier.engine_version
   db_subnet_group_name = aws_db_subnet_group.database-subnet.name
