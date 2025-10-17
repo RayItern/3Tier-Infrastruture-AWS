@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Terraform local files
 .terraform/
 *.tfstate
@@ -16,3 +17,7 @@ terraform.tfvars
 # Ignore provider binaries
 .terraform.lock.hcl
 
+=======
+Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error.Summary:
+Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error
+>>>>>>> 7728fcabed586af346924a5a7232d87ce8d4bef3
