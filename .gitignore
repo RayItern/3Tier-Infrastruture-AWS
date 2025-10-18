@@ -1,23 +1,25 @@
 <<<<<<< HEAD
-# Terraform local files
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.backup
+*.tfvars
 crash.log
 override.tf
 override.tf.json
-*.override.tf
-*.override.tf.json
+terraform.tfstate
+terraform.tfstate.backup
+
 
 # Ignore sensitive files
 terraform.tfvars
 *.pem
 *.key
 
-# Ignore provider binaries
-.terraform.lock.hcl
+# Ignore provider binaries.terraform.lock.hcl
 
 =======
 Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error.Summary:
 Move .terraform/ to a .gitignore file and remove it from any .tf files. This will resolve the error
 >>>>>>> 7728fcabed586af346924a5a7232d87ce8d4bef3
+.terraform/
