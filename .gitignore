@@ -11,4 +11,5 @@ override.tf.json
 *_override.tf.json
 .DS_Store
 Thumbs.db
+.terraform.lock.hcl
 
