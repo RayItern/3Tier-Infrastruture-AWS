@@ -33,7 +33,7 @@ resource "aws_security_group" "apptier-alb-sg" {
 }
 
 # Create App Tier Security Group
-resource "aws_security_group" "apptier-sg" {
+resource "aws_security_group" "apptier-sg1" {
   name        = "Apptier-SG"
   description = "Allow inbound traffic from apptier ALB"
   vpc_id      = aws_vpc.P1-3-tier-archi.id
@@ -63,7 +63,7 @@ resource "aws_security_group" "apptier-sg" {
   }
 
   tags = {
-    Name = "Apptier-SG"
+    Name = "Apptier-SG1"
   }
 }
 
@@ -74,8 +74,8 @@ resource "aws_launch_template" "Apptier-launch-template" {
   image_id      = var.amis
   instance_type = var.instance_type
 
-  vpc_security_group_ids = [aws_security_group.apptier-sg.id]
-  key_name               = aws_key_pair.P1_3tier_archi_keypair.key_name
+  vpc_security_group_ids = [aws_security_group.apptier-sg1.id]
+  key_name               = var.key_pair
   
   monitoring {
     enabled = true
@@ -121,11 +121,11 @@ resource "aws_lb_listener" "apptier-alb" {
 # Create Apptier autoscaling group
 resource "aws_autoscaling_group" "Apptier-ASG" {
   name                      = "App-tier-ASG"
-  max_size                  = 4
-  min_size                  = 2
+  max_size                  = 2
+  min_size                  = 0
   health_check_grace_period = 300
   health_check_type         = "ELB"
-  desired_capacity          = 2
+  desired_capacity          = 1
   force_delete              = false
   target_group_arns = [ aws_lb_target_group.apptier-alb-tg.arn ]  
   vpc_zone_identifier       = [for subnet in aws_subnet.private_apptier_subnet : subnet.id]

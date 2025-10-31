@@ -36,7 +36,7 @@ variable "amis" {
 
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t2.small"
 }
 
 variable "username" {
@@ -50,4 +50,8 @@ variable "password" {
   description = "The password for the DB master user"
   type        = string
   sensitive   = true
+}
+
+variable "key_pair" {
+  default = "olakp"
 }

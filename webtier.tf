@@ -78,7 +78,7 @@ resource "aws_launch_template" "Webtier-launch-template" {
     security_groups             = [aws_security_group.webtier-sg.id]
   }
   
-  key_name = aws_key_pair.P1_3tier_archi_keypair.key_name
+  key_name = var.key_pair
   
   metadata_options {
     http_endpoint  = "enabled"

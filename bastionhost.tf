@@ -31,7 +31,7 @@ resource "aws_instance" "bastion-host" {
     ami                         = var.amis
     associate_public_ip_address = true
     instance_type               = var.instance_type
-    key_name                    = aws_key_pair.P1_3tier_archi_keypair.key_name
+    key_name                    = var.key_pair
     security_groups             = [aws_security_group.bastion-host-sg.id]
     subnet_id                   = element(aws_subnet.public_webtier_subnet[*].id, 0) 
     
